@@ -9,8 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.12.4",
-    "socket.io": "^1.3.5",
     "socket.io-client": "^1.3.5",
     "tessel": "^0.3.23"
   }
