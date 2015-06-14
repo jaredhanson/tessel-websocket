@@ -9,6 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "tessel": "^0.3.23"
+    "ws": "^0.7.2"
   }
 }
