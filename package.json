@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "faye-websocket": "^0.9.4"
+    "nodejs-websocket": "^1.2.1",
+    "tessel-lock": "git://github.com/mgonto/tessel-lock.git"
   }
 }
