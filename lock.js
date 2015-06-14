@@ -1,10 +1,22 @@
 var WebSocket = require('ws');
 //var tessel = require('tessel')
 var ws = new WebSocket('ws://172.16.94.196:8084');
+var util = require('util')
 
 ws.on('open', function open() {
   console.log('OPEN!!!');
-  //ws.send('something');
+});
+
+ws.on('close', function open() {
+  console.log('CLOSE!!!');
+});
+
+ws.on('ping', function open() {
+  console.log('PING!!!');
+});
+
+ws.on('pong', function open() {
+  console.log('PONG!!!');
 });
 
 ws.on('message', function(data, flags) {
@@ -27,5 +39,6 @@ ws.on('message', function(data, flags) {
 ws.on('error', function open(err) {
   console.log('ERROR!!!');
   console.log(err.message);
+  console.log(util.inspect(err, { showHidden: true, depth: null }));
   //ws.send('something');
 });
