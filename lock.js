@@ -1,6 +1,9 @@
-var WebSocket = require('ws');
+//var WebSocket = require('ws');
 //var tessel = require('tessel')
-var ws = new WebSocket('ws://172.16.94.196:8084');
+//var ws = new WebSocket('ws://172.16.94.196:8084');
+
+var WebSocket = require('faye-websocket'),
+    ws        = new WebSocket.Client('ws://172.16.94.196:8084/');
 var util = require('util')
 
 ws.on('open', function open() {
@@ -23,9 +26,10 @@ ws.on('message', function(data, flags) {
   // flags.binary will be set if a binary data is received.
   // flags.masked will be set if the data was masked.
   
-  console.log('TESSEL RECEIVED: ' + data);
+  console.log('TESSEL RECEIVED: ' + data.data);
+  console.log(data.data);
   
-  switch (data) {
+  switch (data.data) {
   case 'lock':
     console.log('Locking...');
     break;
