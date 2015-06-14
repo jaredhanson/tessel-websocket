@@ -7,6 +7,23 @@ ws.on('open', function open() {
   //ws.send('something');
 });
 
+ws.on('message', function(data, flags) {
+  // flags.binary will be set if a binary data is received.
+  // flags.masked will be set if the data was masked.
+  
+  console.log('TESSEL RECEIVED: ' + data);
+  
+  switch (data) {
+  case 'lock':
+    console.log('Locking...');
+    break;
+  case 'unlock':
+    console.log('Unlocking...')
+    break;
+  }
+  
+});
+
 ws.on('error', function open(err) {
   console.log('ERROR!!!');
   console.log(err.message);
