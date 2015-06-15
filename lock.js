@@ -1,9 +1,15 @@
 //var WebSocket = require('ws');
-//var tessel = require('tessel')
+var tessel = require('tessel')
 //var ws = new WebSocket('ws://172.16.94.196:8084');
 
 //var WebSocket = require('faye-websocket'),
 //    ws        = new WebSocket.Client('ws://172.16.94.196:8084/');
+
+var servo = require('servo-tessel-lock');
+servo.init({
+ SERVO_PORT: 'A',
+ SERVO_NUMBER: 1
+});
 
 var WebSocket = require("nodejs-websocket");
 var ws = WebSocket.connect('ws://172.16.94.196:8084', function() {
@@ -20,9 +26,15 @@ var ws = WebSocket.connect('ws://172.16.94.196:8084', function() {
     switch (str) {
     case 'lock':
       console.log('Locking...');
+      servo.move(100, true).then(function() {
+        console.log('Locked');
+      });
       break;
     case 'unlock':
       console.log('Unlocking...')
+      servo.move(100, false).then(function() {
+        console.log('Locked');
+      });
       break;
     }
   })

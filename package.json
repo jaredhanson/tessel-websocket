@@ -10,6 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "nodejs-websocket": "^1.2.1",
-    "tessel-lock": "git://github.com/mgonto/tessel-lock.git"
+    "servo-tessel-lock": "git://github.com/mgonto/tessel-lock.git"
   }
 }
